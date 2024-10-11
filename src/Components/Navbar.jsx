@@ -186,7 +186,7 @@ export default function Navbar(props) {
                 justifyContent: "space-between",
               }}
             >
-              <Link color={"inherit"} underline="none" to="/home">
+              <Link color={"inherit"} style={{textDecoration:'none'}} to="/">
                 <Box
                   sx={{
                     display: "flex",
@@ -196,7 +196,16 @@ export default function Navbar(props) {
                     bg: "transparent",
                   }}
                 >
-                  <h1>Stratus</h1>
+                  <Typography
+                    sx={{
+                      p: 1,
+                      fontSize: "2rem",
+                      textTransform: "uppercase",
+                      color: "#fff",
+                    }}
+                  >
+                    Stratus
+                  </Typography>
                 </Box>
               </Link>
               <Box sx={{ display: "flex", alignItems: "center", gap: 1 }}>
@@ -210,13 +219,14 @@ export default function Navbar(props) {
               </Box>
             </Stack>
 
-            <Link color={"inherit"} underline="none" to="/home">
+            <Link color={"inherit"} underline="none" to="/">
               <Typography
                 sx={{
                   color: "#fff",
                   fontSize: "2.2rem",
                   letterSpacing: 2,
                   textTransform: "uppercase",
+                  display: ["none", "none", "block"],
                 }}
               >
                 Stratus

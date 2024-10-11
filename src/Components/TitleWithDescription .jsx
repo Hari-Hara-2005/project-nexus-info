@@ -1,0 +1,34 @@
+import React from 'react';
+import { Typography, Box } from '@mui/material';
+
+const TitleWithDescription = ({ title, description, color }) => {
+  return (
+    <Box textAlign="center" marginBottom="40px">
+      <Typography
+        gutterBottom
+        sx={{
+          fontSize: { xs: '30px', sm: '35px', md: '40px' },
+          fontWeight: 'bold',
+          marginBottom: '20px',
+          color: color || 'white',
+        }}
+      >
+        {title}
+      </Typography>
+      <Typography
+        sx={{
+          marginBottom: '40px',
+          width: { xs: '100%', sm: '80%', md: '50%' },
+          fontSize: ['15px', '15px', '16px'],
+          lineHeight: 1.7,
+          margin: 'auto',
+          color: color || 'white',
+        }}
+      >
+        {description}
+      </Typography>
+    </Box>
+  );
+};
+
+export default TitleWithDescription;
