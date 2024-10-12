@@ -1,6 +1,6 @@
 import React from "react";
 import { Box, Typography, Link, IconButton } from "@mui/material";
-import { color, styled } from "@mui/system";
+import { styled } from "@mui/system";
 import FacebookIcon from "@mui/icons-material/Facebook";
 import TwitterIcon from "@mui/icons-material/Twitter";
 import YouTubeIcon from "@mui/icons-material/YouTube";
@@ -8,17 +8,17 @@ import YouTubeIcon from "@mui/icons-material/YouTube";
 const FooterContainer = styled(Box)(({ theme }) => ({
   backgroundColor: "#000212",
   color: "#fff",
-  padding: "5rem 15rem",
+  padding: "5rem 10rem",
   display: "flex",
   justifyContent: "space-between",
   alignItems: "flex-start",
   flexWrap: "wrap",
   [theme.breakpoints.down("sm")]: {
-    padding: "1.5rem 1rem",
+    padding: "1rem 1rem",
     flexDirection: "column",
   },
   [theme.breakpoints.down("md")]: {
-    padding: "5rem 1rem",
+    padding: "5rem 2rem",
   },
 }));
 
@@ -73,13 +73,16 @@ const Footer = () => {
     <>
       <FooterContainer>
         <FooterColumn>
-          <Typography sx={{ fontSize: "35px", fontWeight: 600 }}>
+          <Typography
+            sx={{ fontSize: "35px", fontWeight: 600 }}
+            data-aos="fade-up"
+          >
             STRATUS
           </Typography>
         </FooterColumn>
 
-        <FooterColumn>
-          <FooterHeading>Product</FooterHeading>
+        <FooterColumn data-aos="fade-up">
+          <FooterHeading data-aos="fade-up">Product</FooterHeading>
           <FooterLink href="#">Pricing</FooterLink>
           <FooterLink href="#">Download</FooterLink>
           <FooterLink href="#">Features</FooterLink>
@@ -88,8 +91,8 @@ const Footer = () => {
           <FooterLink href="#">Docs</FooterLink>
         </FooterColumn>
 
-        <FooterColumn>
-          <FooterHeading>Company</FooterHeading>
+        <FooterColumn data-aos="fade-up">
+          <FooterHeading data-aos="fade-up">Company</FooterHeading>
           <FooterLink href="#">About us</FooterLink>
           <FooterLink href="#">Blog</FooterLink>
           <FooterLink href="#">Careers</FooterLink>
@@ -97,8 +100,8 @@ const Footer = () => {
           <FooterLink href="#">Brand</FooterLink>
         </FooterColumn>
 
-        <FooterColumn>
-          <FooterHeading>Resources</FooterHeading>
+        <FooterColumn data-aos="fade-up">
+          <FooterHeading data-aos="fade-up">Resources</FooterHeading>
           <FooterLink href="#">Contact</FooterLink>
           <FooterLink href="#">Community</FooterLink>
           <FooterLink href="#">DPA</FooterLink>
@@ -106,8 +109,8 @@ const Footer = () => {
           <FooterLink href="#">Report issues</FooterLink>
         </FooterColumn>
 
-        <FooterColumn>
-          <FooterHeading>Developers</FooterHeading>
+        <FooterColumn data-aos="fade-up">
+          <FooterHeading data-aos="fade-up">Developers</FooterHeading>
           <FooterLink href="#">API</FooterLink>
           <FooterLink href="#">Status</FooterLink>
           <FooterLink href="#">GitHub</FooterLink>

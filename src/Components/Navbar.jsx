@@ -63,7 +63,7 @@ export default function Navbar(props) {
 
   const navItems = [
     {
-      link: "/home",
+      link: "/",
       name: "Home",
     },
     {
@@ -75,7 +75,7 @@ export default function Navbar(props) {
       name: "Service",
     },
     {
-      link: "/contact",
+      link: "/contactus",
       name: "Contact Us",
     },
   ];
@@ -186,7 +186,7 @@ export default function Navbar(props) {
                 justifyContent: "space-between",
               }}
             >
-              <Link color={"inherit"} style={{textDecoration:'none'}} to="/">
+              <Link color={"inherit"} style={{ textDecoration: "none" }} to="/">
                 <Box
                   sx={{
                     display: "flex",

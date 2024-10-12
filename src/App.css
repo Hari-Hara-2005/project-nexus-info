@@ -10,3 +10,17 @@
   object-fit: cover;
   filter: brightness(60%);
 }
+.swiper-button-next,
+.swiper-button-prev {
+  color: white;
+}
+
+.swiper-slide img {
+  max-width: 100px;
+  margin: 0 auto;
+  display: block;
+}
+
+.swiper-slide {
+  text-align: center;
+}
