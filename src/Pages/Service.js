@@ -1,23 +1,17 @@
-import { Avatar, Box, Button, Typography } from '@mui/material'
-import React from 'react'
+import { Box, Button, Typography } from '@mui/material'
+import React, { useEffect } from 'react'
 import Navbar from '../Components/Navbar'
 import TitleWithDescription from '../Components/TitleWithDescription '
-import Footer from '../Components/Footer'
-import { Swiper, SwiperSlide } from "swiper/react";
+import Footer from '../Components/Footer';
 import "swiper/css";
 import "swiper/css/pagination";
-import { Navigation, Autoplay } from "swiper/modules";
 import Review from '../Components/Review'
 import Slider from '../Components/Slider'
-const logos = [
-    'Assets/leaf-50.png',
-    'Assets/fox-hub-50.png',
-    'Assets/lighting-50.png',
-    'Assets/towers-50.png',
-    'Assets/treva-50.png',
-    'Assets/volicity9-50.png',
-];
+
 const Service = () => {
+    useEffect(() => {
+        document.title = "Service";
+    }, []);
     return (
         <>
             <Box sx={{ minHeight: '100vh', overflow: 'hidden' }}>

@@ -1,45 +1,13 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { Box, Typography, Button, CardMedia, Card, CardContent, CardActionArea, CardActions, IconButton } from '@mui/material';
 import Navbar from '../Components/Navbar';
-import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
 import "swiper/css/pagination";
-import { Navigation, Autoplay } from "swiper/modules";
 import Footer from '../Components/Footer';
 import { Facebook as FacebookIcon, Twitter as TwitterIcon, Instagram as InstagramIcon } from '@mui/icons-material';
 import Slider from '../Components/Slider';
-const values = [
-    {
-        title: 'Authenticity',
-        description: 'Aliquam mollis quam sed mattis sodales. Morbi accumsan posuere iaculis. Donec a scelerisque magna.',
-        icon: '💎',
-    },
-    {
-        title: 'Togetherness',
-        description: 'Suspendisse sagittis vel lacinia. Integer sit amet ante elit. Praesent pulvinar congue risus, in tristique.',
-        icon: '🤝',
-    },
-    {
-        title: 'Gratitude',
-        description: 'Vestibulum id ligula porta felis euismod semper. Nullam quis risus eget urna mollis ornare vel eu.',
-        icon: '🏆',
-    },
-    {
-        title: 'Transparency',
-        description: 'Suspendisse sagittis vel lacinia. Integer sit amet ante elit. Praesent pulvinar congue risus, in tristique.',
-        icon: '📊',
-    },
-    {
-        title: 'Inspiration',
-        description: 'Vestibulum id ligula porta felis euismod semper. Nullam quis risus eget urna mollis ornare vel eu.',
-        icon: '⛵',
-    },
-    {
-        title: 'Service',
-        description: 'Aliquam mollis quam sed mattis sodales. Morbi accumsan posuere iaculis. Donec a scelerisque magna.',
-        icon: '📞',
-    },
-];
+
+import { values } from '../utility/data'
 
 const cardData = [
     {
@@ -62,9 +30,10 @@ const cardData = [
     },
 ];
 
-
-
 const About = () => {
+    useEffect(() => {
+        document.title = "About";
+    }, []);
     return (
         <>
             <Box sx={{ minHeight: "100vh", overflow: "hidden" }}>

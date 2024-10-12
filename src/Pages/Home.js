@@ -1,19 +1,5 @@
-import React from 'react';
-import { Box, Typography, Avatar, Icon, Button, Card, CardContent, Link, Divider } from '@mui/material';
-import ViewComfyIcon from '@mui/icons-material/ViewComfy';
-import SupportAgentIcon from '@mui/icons-material/SupportAgent';
-import SettingsInputAntennaIcon from '@mui/icons-material/SettingsInputAntenna';
-import DiamondIcon from '@mui/icons-material/Diamond';
-import PhotoLibraryIcon from '@mui/icons-material/PhotoLibrary';
-import GoogleIcon from '@mui/icons-material/Google';
-import SpeedIcon from '@mui/icons-material/Speed';
-import PsychologyIcon from '@mui/icons-material/Psychology';
-import LockIcon from '@mui/icons-material/Lock';
-import BuildIcon from '@mui/icons-material/Build';
-import RocketIcon from '@mui/icons-material/Rocket';
-import SettingsIcon from '@mui/icons-material/Settings';
-import VisibilityOffIcon from '@mui/icons-material/VisibilityOff';
-import SearchIcon from '@mui/icons-material/Search';
+import React, { useEffect } from 'react';
+import { Box, Typography,Icon, Button, Card, CardContent, Link, Divider } from '@mui/material';
 import Navbar from '../Components/Navbar';
 import { createTheme, ThemeProvider } from "@mui/material/styles";
 import ChevronRightIcon from '@mui/icons-material/ChevronRight';
@@ -22,13 +8,8 @@ import AddIcon from '@mui/icons-material/Add';
 import RemoveIcon from '@mui/icons-material/Remove';
 import Footer from '../Components/Footer';
 import TitleWithDescription from '../Components/TitleWithDescription ';
-import KeyIcon from '@mui/icons-material/Key';
-import PersonAddAlt1Icon from '@mui/icons-material/PersonAddAlt1';
-import BiotechIcon from '@mui/icons-material/Biotech';
-import PhonelinkIcon from '@mui/icons-material/Phonelink';
-import MmsIcon from '@mui/icons-material/Mms';
-import AddchartIcon from '@mui/icons-material/Addchart';
 import Review from '../Components/Review';
+import { feature, cardData, icons, features, data } from '../utility/data'
 const useStyles = {
     container: {
         padding: '50px 20px',
@@ -144,47 +125,6 @@ const useStyles = {
         background: 'radial-gradient(at top left, #00C2FF40 0%, #000000 80%)',
     },
 };
-
-
-const cardData = [
-    {
-        icon: <KeyIcon />,
-        title: 'Futuristic design',
-        description: 'Crafted with innovation in mind, Stratus boasts a sleek and futuristic design that captivates your visitors from the moment they land on your site. Impress with stunning visuals and user-friendly layouts that scream modernity and sophistication. No coding knowledge required!',
-        link: '#',
-        borderColor: '#7DD666',
-        linkColor: '#7DD666',
-        gradientStyle: 'gradientBackground1',
-    },
-    {
-        icon: <PersonAddAlt1Icon />,
-        title: 'Advanced customization',
-        description: 'Tailor your website to perfection with our easy-to-use customization tools. No coding knowledge required! With Stratus’s intuitive interface, you can effortlessly modify colors, fonts, layouts, and more, making your site truly unique and a reflection of your brand.',
-        link: '#',
-        borderColor: '#FFB489',
-        linkColor: '#FFB489',
-        gradientStyle: 'gradientBackground2',
-    },
-    {
-        icon: <BiotechIcon />,
-        title: 'Tech-centric features',
-        description: 'Built for tech enthusiasts, by tech enthusiasts, Stratus comes equipped with an array of specialized features that set you apart from the competition. Showcase your products, services, or projects with interactive portfolios, attention-grabbing sliders, and dynamic elements that engage your audience like never before.',
-        link: '#',
-        borderColor: '#FF72DE',
-        linkColor: '#FF72DE',
-        gradientStyle: 'gradientBackground3',
-    },
-    {
-        icon: <PhonelinkIcon />,
-        title: 'Mobile-first design',
-        description: 'With an increasing number of users browsing on mobile devices, it’s essential to offer a seamless experience on any screen size. Stratus’s mobile-first approach ensures your website looks stunning on smartphones, tablets, and desktops alike. Helping you reach your target audience.',
-        link: '#',
-        borderColor: '#00C2FF',
-        linkColor: '#00C2FF',
-        gradientStyle: 'gradientBackground4',
-    },
-];
-
 const StyledCard = styled(Card)(({ theme }) => ({
     background: 'radial-gradient(at center left, #0F1642 0%, #1E244D61 100%)',
     color: 'white',
@@ -218,10 +158,6 @@ const StyledCard = styled(Card)(({ theme }) => ({
         padding: '10px',
     },
 }));
-
-
-
-
 const Container = styled(Box)(({ theme }) => ({
     backgroundColor: '#0F1642',
     borderRadius: '15px',
@@ -250,7 +186,6 @@ const Header = styled(Box)({
     fontWeight: 600,
     borderBottom: '1px solid #6249CE',
 });
-
 const Row = styled(Box)({
     display: 'flex',
     justifyContent: 'space-between',
@@ -258,7 +193,6 @@ const Row = styled(Box)({
     padding: '1.4rem 0',
     position: 'relative',
 });
-
 const Column = styled(Box)(({ theme }) => ({
     display: 'flex',
     alignItems: 'center',
@@ -280,45 +214,18 @@ const VerticalDivider = styled(Box)(({ theme }) => ({
         height: '18rem',
     },
 }));
-
 const PlusIcon = styled(AddIcon)({
     color: '#0FD5BE',
     marginRight: '10px',
 });
-
 const MinusIcon = styled(RemoveIcon)({
     color: '#22A8A7',
     marginRight: '10px',
 });
-
 const DividerWithSpace = styled(Divider)({
     backgroundColor: '#6249CE',
     margin: '0 0 1rem 0',
 });
-
-
-const features = [
-    {
-        positive: 'Stratus boasts a sleek and futuristic design that captivates your visitors from the moment they land on your site.',
-        negative: 'Basic, generic designs.',
-    },
-    {
-        positive: 'Tailor your website to perfection with our easy-to-use customization tools.',
-        negative: 'Limited customization.',
-    },
-    {
-        positive: 'Built for tech enthusiasts, by tech enthusiasts, Stratus comes equipped with an array of specialized features that set you apart from the competition.',
-        negative: 'Limited mobile optimization.',
-    },
-    {
-        positive: 'Rest easy knowing that Stratus is fortified with robust security measures, ensuring your website and sensitive data are safe from malicious threats.',
-        negative: 'No demo content provided.',
-    },
-    {
-        positive: "Stratus's lightweight architecture and optimized code guarantee lightning-fast loading times, reducing bounce rates and keeping your audience glued to your content.",
-        negative: 'Slower loading times.',
-    },
-];
 const IconWrapper = styled(Box)(({ theme }) => ({
     marginBottom: 5,
     fontWeight: 900,
@@ -329,124 +236,10 @@ function Home() {
             fontFamily: `'Source Sans 3', sans-serif`,
         },
     });
-    const icons = [
-        { icon: <SpeedIcon sx={{ fontSize: 35 }} />, title: 'Fast setup' },
-        { icon: <ViewComfyIcon sx={{ fontSize: 35 }} />, title: 'Drag & drop builder' },
-        { icon: <SupportAgentIcon sx={{ fontSize: 35 }} />, title: 'Amazing support' },
-        { icon: <SettingsInputAntennaIcon sx={{ fontSize: 35 }} />, title: 'Mobile ready' },
-        { icon: <PhotoLibraryIcon sx={{ fontSize: 35 }} />, title: 'Great demos' },
-        { icon: <PsychologyIcon sx={{ fontSize: 40 }} />, title: 'Innovative solutions' },
-        { icon: <GoogleIcon sx={{ fontSize: 35 }} />, title: 'Google optimized' },
-        { icon: <DiamondIcon sx={{ fontSize: 35 }} />, title: 'Pixel-perfect' },
-    ];
+    useEffect(() => {
+        document.title = "Home";
+    }, []);
 
-    const feature = [
-        { icon: <DiamondIcon />, title: 'Cutting edge design', description: 'Sleek and futuristic design that captivates your visitors.' },
-        { icon: <LockIcon />, title: 'Fortified security', description: 'Rest easy knowing that Stratus is fortified with robust security measures.' },
-        { icon: <BuildIcon />, title: 'Tech-centric features', description: 'Showcase your products, services, or projects with dynamic elements.' },
-        { icon: <VisibilityOffIcon />, title: 'End-to-end encryption', description: 'Sensitive data are safe from malicious threats.' },
-        { icon: <RocketIcon />, title: 'Blazing-fast performance', description: 'Lightweight architecture and optimized code.' },
-        { icon: <SettingsIcon />, title: 'Advanced customization', description: 'Tailor your website with our easy-to-use customization tools.' },
-        { icon: <PhotoLibraryIcon />, title: 'Photo gallery', description: 'Showcase your technology in a stunning custom portfolio.' },
-        { icon: <SearchIcon />, title: 'Frictionless search', description: 'Easily recall and index pages and data.' },
-    ];
-    const reviews = [
-        {
-            id: 1,
-            avatar: 'https://randomuser.me/api/portraits/men/1.jpg',
-            name: '@jaredpeters23',
-            role: 'Business Owner',
-            review: 'Love this theme! Really nice designs and great quality overall. The customer support answered all my questions too 😁'
-        },
-        {
-            id: 2,
-            avatar: 'https://randomuser.me/api/portraits/men/2.jpg',
-            name: '@hfeldadna',
-            role: 'Developer',
-            review: 'Amazing template. Amazing support. Highly recommended 😁'
-        },
-        {
-            id: 3,
-            avatar: 'https://randomuser.me/api/portraits/women/3.jpg',
-            name: '@jeff275',
-            role: 'Designer',
-            review: 'Very nice template, very helpful support. Can\'t wait to get the new site launched. Thank you!'
-        },
-        {
-            id: 4,
-            avatar: 'https://randomuser.me/api/portraits/women/4.jpg',
-            name: '@Ninjapete',
-            role: 'Creative',
-            review: 'A highly adaptable theme and very responsive, timely and comprehensive support. Thanks guys.'
-        },
-        {
-            id: 5,
-            avatar: 'https://randomuser.me/api/portraits/men/5.jpg',
-            name: '@edzheimer',
-            role: 'Developer',
-            review: 'Complete theme easy to install, with lots of templates to import. Thank you for the quality of this theme. I am very happy.'
-        },
-        {
-            id: 6,
-            avatar: 'https://randomuser.me/api/portraits/women/6.jpg',
-            name: '@Mer1iNN',
-            role: 'Customer',
-            review: 'Awesome theme! Tons of customization, easy management, bunch of templates.'
-        },
-        {
-            id: 7,
-            avatar: 'https://randomuser.me/api/portraits/men/7.jpg',
-            name: '@sc-marketing',
-            role: 'Graphic Designer',
-            review: 'This theme is excellent in every manner of speaking. I’ve built a number of websites with it because it’s so easy to work with.'
-        },
-        {
-            id: 8,
-            avatar: 'https://randomuser.me/api/portraits/women/8.jpg',
-            name: '@Jasonmaar',
-            role: 'Customer',
-            review: 'Awesome! Webflow quality at wordpress convenience. Make sure you’re using managed hosting.'
-        }
-    ];
-
-    const data = [
-        {
-            id: 1,
-            icon: <DiamondIcon fontSize="large" />,
-            title: 'Premium design',
-            subtitle: 'Stunning visuals and user-friendly layouts',
-            description:
-                'Crafted with innovation in mind, Stratus boasts a sleek and futuristic design that captivates your visitors from the moment they land on your site. Impress with stunning visuals and user-friendly layouts that scream modernity and sophistication.',
-            buttonLabel: 'Learn more',
-            buttonColor: '#00C2FF',
-            gradient: 'radial-gradient(at top left, #00C2FF40 0%, #000000 80%)',
-            imageUrl: 'Assets/design-1.png',
-        },
-        {
-            id: 2,
-            icon: <MmsIcon fontSize="large" />,
-            title: 'Premium quality images',
-            subtitle: 'Includes a large selection of curated images',
-            description:
-                'A premium WordPress theme that transforms your website into a visual masterpiece. Immerse your audience in a captivating online experience with our exceptional collection of curated images. Elevate your content effortlessly with a vast selection of stunning visuals that resonate with your brand and message.',
-            buttonLabel: 'Learn more',
-            buttonColor: '#7DD666',
-            gradient: ' radial-gradient(at top right, #7DD66640 0%, #000000 80%)',
-            imageUrl: 'Assets/Photos-1.png',
-        },
-        {
-            id: 3,
-            icon: <AddchartIcon fontSize="large" />,
-            title: 'Rapid build',
-            subtitle: 'Pre-designed templates in seconds',
-            description:
-                'You can now access a stunning array of pre-designed templates that can be applied to your website in a matter of seconds. Choose from a rich collection of meticulously crafted templates, each designed to exude professionalism and captivate your audience’s attention.',
-            buttonLabel: 'Learn more',
-            buttonColor: '#FFB489',
-            gradient: 'radial-gradient(at top left, #FFB48940 0%, #000000 80%)',
-            imageUrl: 'Assets/Library-1.png',
-        },
-    ];
     return (
         <>
             <video autoPlay muted loop id="myVideo">

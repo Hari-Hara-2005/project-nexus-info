@@ -140,7 +140,10 @@ const ContactUs = () => {
                         }}
                     >
                         <Navbar color="#fff" />
-                        <Typography sx={{ fontWeight: 'bold', fontSize: ['40px', '50px', '60px'] }}>
+                        <Typography
+                            data-aos="fade-down"
+                            data-aos-duration="1000"
+                            data-aos-delay="0" sx={{ fontWeight: 'bold', fontSize: ['40px', '50px', '60px'] }}>
                             Contact Us
                         </Typography>
                     </Box>
@@ -257,7 +260,7 @@ const ContactUs = () => {
                                                 "&:hover": {
                                                     bgcolor: "transparent",
                                                     borderColor: '#000212',
-                                                    color:'#000'
+                                                    color: '#000'
                                                 },
                                             }}
                                         >
