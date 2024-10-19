@@ -93,7 +93,7 @@ const Footer = () => {
 
         <FooterColumn data-aos="fade-up">
           <FooterHeading data-aos="fade-up">Company</FooterHeading>
-          <FooterLink href="#">About us</FooterLink>
+          <FooterLink href="/about">About us</FooterLink>
           <FooterLink href="#">Blog</FooterLink>
           <FooterLink href="#">Careers</FooterLink>
           <FooterLink href="#">Customers</FooterLink>
@@ -102,7 +102,7 @@ const Footer = () => {
 
         <FooterColumn data-aos="fade-up">
           <FooterHeading data-aos="fade-up">Resources</FooterHeading>
-          <FooterLink href="#">Contact</FooterLink>
+          <FooterLink href="/contactus">Contact</FooterLink>
           <FooterLink href="#">Community</FooterLink>
           <FooterLink href="#">DPA</FooterLink>
           <FooterLink href="#">Terms of service</FooterLink>

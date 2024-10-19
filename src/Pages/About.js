@@ -34,6 +34,24 @@ const About = () => {
     useEffect(() => {
         document.title = "About";
     }, []);
+
+
+    useEffect(() => {
+        const hash = window.location.hash.substring(1);
+        const element = document.getElementById(hash);
+        if (element) {
+            element.scrollIntoView({ behavior: 'smooth' });
+        }
+    }, []);
+
+    const handleClick = (e, id) => {
+        e.preventDefault();
+        const target = document.getElementById(id);
+        if (target) {
+            target.scrollIntoView({ behavior: 'smooth' });
+            window.history.pushState(null, '', `#${id}`);
+        }
+    };
     return (
         <>
             <Box sx={{ minHeight: "100vh", overflow: "hidden" }}>
@@ -165,6 +183,8 @@ const About = () => {
                         </Typography>
                         <Button
                             variant="outlined"
+                            href="#people"
+                            onClick={(e) => handleClick(e, 'people')}
                             sx={{
                                 borderColor: '#26e7a6',
                                 color: '#26e7a6',
@@ -207,7 +227,7 @@ const About = () => {
                     </Box>
                 </Box>
             </Box>
-            <Box sx={{ backgroundColor: '#0B1121', color: 'white' }}>
+            <Box id="people" sx={{ backgroundColor: '#0B1121', color: 'white' }}>
                 <Box
                     display="flex"
                     flexDirection={{ xs: 'column', md: 'row' }}
@@ -264,6 +284,8 @@ const About = () => {
                         </Typography>
                         <Button
                             variant="outlined"
+                            href="#Team"
+                            onClick={(e) => handleClick(e, 'Team')}
                             sx={{
                                 borderColor: '#26e7a6',
                                 color: '#26e7a6',
@@ -367,7 +389,7 @@ const About = () => {
             <Box>
                 <Slider />
             </Box>
-            <Box sx={{ backgroundColor: '#1A202C', color: 'white', padding: ['40px 2rem', '40px 2rem', '90px 5rem', '90px 5rem', '90px 13rem'] }}>
+            <Box id='Team' sx={{ backgroundColor: '#1A202C', color: 'white', padding: ['40px 2rem', '40px 2rem', '90px 5rem', '90px 5rem', '90px 13rem'] }}>
                 <Box textAlign="left" mb={5}>
                     <Typography
                         sx={{ fontWeight: 'bold', mb: 2, fontSize: ['30px', '48px'] }}
@@ -499,6 +521,7 @@ const About = () => {
                 </Typography>
                 <Button
                     variant="outlined"
+                    href='/contactus'
                     sx={{
                         borderColor: '#fff',
                         color: '#fff',

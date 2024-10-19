@@ -1,4 +1,4 @@
-import { Box, Button, Typography } from '@mui/material'
+import { Box, Button, Typography, Paper } from '@mui/material'
 import React, { useEffect } from 'react'
 import Navbar from '../Components/Navbar'
 import TitleWithDescription from '../Components/TitleWithDescription '
@@ -7,8 +7,73 @@ import "swiper/css";
 import "swiper/css/pagination";
 import Review from '../Components/Review'
 import Slider from '../Components/Slider'
+import { makeStyles } from '@mui/styles';
 
 const Service = () => {
+    const useStyles = makeStyles((theme) => ({
+        container: {
+            display: 'flex',
+            flexWrap: 'wrap',
+            justifyContent: 'space-around',
+            gap: '20px',
+            padding: '20px',
+        },
+        card: {
+            flex: '1 1 calc(33.333% - 40px)',
+            minWidth: '250px',
+            padding: '20px',
+            textAlign: 'center',
+            boxShadow: '0 4px 8px rgba(0, 0, 0, 0.1)',
+            borderRadius: '15px',
+        },
+        icon: {
+            fontSize: '50px',
+            marginBottom: '10px',
+            color: '#2196f3',
+        },
+        title: {
+            fontWeight: 'bold',
+            color: '#2c3e50',
+            marginBottom: '10px',
+        },
+        description: {
+            color: '#7f8c8d',
+        },
+    }));
+
+    const steps = [
+        {
+            icon: '📝',
+            title: 'Understanding The Project',
+            description: 'We gather requirements, discuss the idea, and clarify all doubts regarding the project.',
+        },
+        {
+            icon: '📋',
+            title: 'Wireframing And Planning',
+            description: 'Wireframing, prototyping, and feasibility analysis before design and development.',
+        },
+        {
+            icon: '🎨',
+            title: 'Graphic And UI Designing',
+            description: 'Crafting visual components, psds, and screens for the development process.',
+        },
+        {
+            icon: '⚙️',
+            title: 'Development And Optimization',
+            description: 'Developers create functional elements and backend modules integrated with the UI.',
+        },
+        {
+            icon: '✅',
+            title: 'Quality And Extension',
+            description: 'Quality assurance is performed, and security audits are done before launching.',
+        },
+        {
+            icon: '🚀',
+            title: 'First Draft To Final Delivery',
+            description: 'The first draft is shown to the client for approval before final delivery.',
+        },
+    ];
+    const classes = useStyles();
     useEffect(() => {
         document.title = "Service";
     }, []);
@@ -46,7 +111,6 @@ const Service = () => {
                         Services
                     </Typography>
                 </Box>
-
                 <Box
                     sx={{
                         backgroundColor: '#000212',
@@ -64,9 +128,23 @@ const Service = () => {
                             Get innovative, SEO friendly, responsive and user friendly website development services.
                         </Typography>
                     </Box>
-                    <TitleWithDescription title="Web Development Company" />
-
-                    <Box sx={{ pb: [10, 20] }}>
+                    <Box>
+                        <Box className={classes.container}>
+                            {steps.map((step, index) => (
+                                <Paper key={index} className={classes.card} data-aos="zoom-in" data-aos-duration="1200">
+                                    <Box className={classes.icon}>{step.icon} </Box>
+                                    <Typography variant="h6" className={classes.title} data-aos="fade-right" data-aos-delay="200">
+                                        {step.title}
+                                    </Typography>
+                                    <Typography className={classes.description} data-aos="fade-left" data-aos-delay="400">
+                                        {step.description}
+                                    </Typography>
+                                </Paper>
+                            ))}
+                        </Box>
+                    </Box>
+                    <Box sx={{ pb: [10, 20], pt: [5, 10] }}>
+                        <TitleWithDescription title="Web Development Company" />
                         <Box sx={{ display: 'flex', flexDirection: { xs: 'column', md: 'row' }, backgroundColor: '#000212' }} data-aos="fade-up" data-aos-duration="1200">
                             <Box
                                 sx={{
@@ -88,6 +166,8 @@ const Service = () => {
                                 </Typography>
                                 <Button
                                     variant="outlined"
+                                    href="/contactus"
+
                                     sx={{
                                         borderColor: '#26e7a6',
                                         color: '#26e7a6',

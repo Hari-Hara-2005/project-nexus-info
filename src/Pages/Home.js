@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react';
-import { Box, Typography,Icon, Button, Card, CardContent, Link, Divider } from '@mui/material';
+import { Box, Typography, Icon, Button, Card, CardContent, Link, Divider } from '@mui/material';
 import Navbar from '../Components/Navbar';
 import { createTheme, ThemeProvider } from "@mui/material/styles";
 import ChevronRightIcon from '@mui/icons-material/ChevronRight';
@@ -240,16 +240,33 @@ function Home() {
         document.title = "Home";
     }, []);
 
+    useEffect(() => {
+        const hash = window.location.hash.substring(1);
+        const element = document.getElementById(hash);
+        if (element) {
+            element.scrollIntoView({ behavior: 'smooth' });
+        }
+    }, []);
+
+    const handleClick = (e, id) => {
+        e.preventDefault();
+        const target = document.getElementById(id);
+        if (target) {
+            target.scrollIntoView({ behavior: 'smooth' });
+            window.history.pushState(null, '', `#${id}`);
+        }
+    };
+
     return (
         <>
             <video autoPlay muted loop id="myVideo">
                 <source src="Assets/bg-video.mp4" type="video/mp4" />
             </video>
             <ThemeProvider theme={theme}>
-                <Box sx={{ bgcolor: '#000212' }}>
+                <Box sx={{ backgroundColor: '#000212' }}>
                     <Navbar color="#fff" />
                     {/* Home Section*/}
-                    <Box
+                    <Box id='#Home'
                         sx={{
                             position: 'absolute',
                             top: '50%',
@@ -290,6 +307,8 @@ function Home() {
                         <Button
                             data-aos="zoom-in-up" data-aos-duration="2000"
                             variant="contained"
+                            href='#Compare'
+                            onClick={(e) => handleClick(e, 'Compare')}
                             endIcon={
                                 <Box
                                     sx={{
@@ -363,6 +382,8 @@ function Home() {
                             >
                                 <Button
                                     variant="contained"
+                                    onClick={(e) => handleClick(e, 'Futuristic')}
+                                    href='#Futuristic'
                                     sx={{
                                         background: 'linear-gradient(45deg, #6249C0, #9174CA)',
                                         color: '#fff',
@@ -382,7 +403,7 @@ function Home() {
                         </Box>
                     </Box>
                     {/* Futuristic design Section*/}
-                    <Box sx={{ backgroundColor: '#000212', color: 'white', padding: '50px 20px', textAlign: 'center' }}>
+                    <Box id='Futuristic' sx={{ backgroundColor: '#000212', color: 'white', padding: '50px 20px', textAlign: 'center' }}>
                         <TitleWithDescription
                             title="Futuristic design"
                             description="Crafted with innovation in mind, Stratus boasts a sleek and futuristic design that captivates your visitors from the moment they land on your site. Impress with stunning visuals and user-friendly layouts that scream modernity and sophistication."
@@ -487,6 +508,8 @@ function Home() {
                             >
                                 <Button
                                     variant="contained"
+                                    onClick={(e) => handleClick(e, 'Work')}
+                                    href='#Work'
                                     sx={{
                                         background: 'linear-gradient(45deg, #6249C0, #9174CA)',
                                         color: '#fff',
@@ -506,7 +529,7 @@ function Home() {
                         </Box>
                     </Box>
                     {/* Work  Section*/}
-                    <Box sx={{ backgroundColor: '#000212', padding: { xs: '20px 20px', sm: '40px 20px', md: '50px 20px' } }}>
+                    <Box id='Work' sx={{ backgroundColor: '#000212', padding: { xs: '20px 20px', sm: '40px 20px', md: '50px 20px' } }}>
                         <TitleWithDescription
                             title="Laser focused on WordPress"
                             description="Unleash the full potential of your tech-oriented website with Stratus!"
@@ -547,10 +570,6 @@ function Home() {
                                                     color: card.buttonColor,
                                                     fontWeight: 500,
                                                     fontSize: { xs: '16px', md: '17px' },
-                                                    transition: 'color 0.3s ease',
-                                                    '&:hover': {
-                                                        color: '#FFD700',
-                                                    }
                                                 }}
                                                 data-aos="fade-right"
                                                 data-aos-duration="800"
@@ -583,6 +602,7 @@ function Home() {
                                         </Typography>
 
                                         <Button
+                                            href='/about'
                                             sx={{
                                                 color: card.buttonColor,
                                                 textTransform: 'none',
@@ -590,7 +610,6 @@ function Home() {
                                                 marginBottom: '10px',
                                                 transition: 'background-color 0.3s ease, transform 0.3s ease',
                                                 '&:hover': {
-                                                    backgroundColor: card.buttonColor,
                                                     transform: 'scale(1.05)',
                                                 },
                                             }}
@@ -698,11 +717,12 @@ function Home() {
                                                         {card.description}
                                                     </Typography>
                                                     <Link
-                                                        href={card.link}
+                                                        href={'/service'}
                                                         sx={{ ...useStyles.link, color: card.linkColor }}
                                                         data-aos="fade-up"
                                                         data-aos-delay="500"
                                                         data-aos-duration="800"
+                                                        style={{ textDecoration: 'none' }}
                                                     >
                                                         Learn more
                                                     </Link>
@@ -745,11 +765,12 @@ function Home() {
                                                         {card.description}
                                                     </Typography>
                                                     <Link
-                                                        href={card.link}
+                                                        href={'/service'}
                                                         sx={{ ...useStyles.link, color: card.linkColor }}
                                                         data-aos="fade-up"
                                                         data-aos-delay="500"
                                                         data-aos-duration="800"
+                                                        style={{ textDecoration: 'none' }}
                                                     >
                                                         Learn more
                                                     </Link>
@@ -847,7 +868,7 @@ function Home() {
                         />
                     </Box>
                     {/* Compare Section*/}
-                    <Box sx={{ py: [5, 10], px: 3 }}>
+                    <Box id='Compare' sx={{ py: [5, 10], px: 3 }}>
                         <TitleWithDescription
                             title="Global compatibility"
                             description="Stratus is translation-ready and fully compatible with popular plugins, ensuring your website can reach a global audience, breaking language barriers, and expanding your online reach."
@@ -894,6 +915,7 @@ function Home() {
                                     Build a better website with Stratus
                                 </Typography>
                                 <Button
+                                    href='/contactus'
                                     variant="contained"
                                     endIcon={
                                         <Box
