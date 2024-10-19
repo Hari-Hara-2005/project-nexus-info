@@ -129,7 +129,13 @@ const Footer = () => {
             </IconButton>
           </SocialIcons>
           <Typography>
-            Copyright © 2024 Stratus | Designed and Developed by Hari Hara
+            Copyright © 2024 Stratus | Designed and Developed by{" "}
+            <a
+              style={{ textDecoration: "none", color: "#fff", fontWeight: 800 }}
+              href="https://harihara.vercel.app/"
+            >
+              Hari Hara
+            </a>
           </Typography>
         </FooterBottom>
       </FooterContainer>

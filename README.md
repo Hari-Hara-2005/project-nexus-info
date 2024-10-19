@@ -20,6 +20,7 @@ Check out the live site here: [Software Solutions Inc.](https://project-nexus-in
 
 - **React**
 - **Material UI**
+- **Swiper**
 - **AOS (Animate on Scroll)**
 - **JavaScript**
 - **Frontend**: React.js, Material UI, AOS (Animate On Scroll) for animations
